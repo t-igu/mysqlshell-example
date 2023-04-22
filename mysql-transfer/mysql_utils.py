@@ -63,10 +63,13 @@ class MySQLTransfer:
         load_option =[f"--{load_option}" for load_option in config['load']['options']]
         self.load_option = ' '.join(load_option)
 
+    @logger.catch            
     def exec_cmd(self, cmd):
-        print('cmd', cmd)
         output = subprocess.run(cmd)
-        return output
+        if output==0:
+            return output
+        else:
+            raise Exception(f'command execute error! cmd={cmd}')
 
     def create_dump_cmd(self, table_name):
         cmd = f'{self.dump_cmd} {table_name} --output-url {self._dumpdir}/{table_name} {self.dump_option}'
@@ -79,20 +82,21 @@ class MySQLTransfer:
     def exec_transfer(self, table_name):
             dumpcmd = self.create_dump_cmd(table_name)
             loadcmd = self.create_load_cmd(table_name)
-            ret = subprocess.run(dumpcmd)
-            ret2 = subprocess.run(loadcmd)
-
+            ret = self.exec_cmd(dumpcmd)
+            logger.info(f'result={ret} {dumpcmd}')
+            if ret==0:
+                ret2 = self.exec_cmd(loadcmd)
+                logger.info(f'result={ret2} {loadcmd}')
     def transfer(self) -> None:
         for table_name in self.dump_tables:
             try:
+                logger.info(f'transfer start. table={table_name}')
                 ret = self.exec_transfer(table_name)
             except subprocess.CalledProcessError as e:
                 msg = f"transfer failed table:{table_name} returncode:{e.returncode}, output:{e.output}"
-                logger.error(msg)
         if os.path.exists(self._dumpdir):
             shutil.rmtree(self._dumpdir)
 
 if __name__ == '__main__':
-    # print(load_settings())
     trans = MySQLTransfer()
     trans.transfer()
