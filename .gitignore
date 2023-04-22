@@ -1,2 +1,3 @@
 settings.yaml
 application*.log*
+__pycache__
