@@ -1,6 +1,6 @@
 # MySQL Shell ユーティリティを利用してMySQLを移行する
 
-[MySQL Shell ユーティリティ](https://dev.mysql.com/doc/mysql-shell/8.0/ja/mysql-shell-utilities.html)を使ったMySQLのテーブルを移行するサンプルアプリケーションです。
+[MySQL Shell ユーティリティ](https://dev.mysql.com/doc/mysql-shell/8.0/ja/mysql-shell-utilities.html){:target="_blank"}を使ったMySQLのテーブルを移行するサンプルアプリケーションです。
 
 Pythonから、コマンドを実行し、dumpTables()によってMySQLのテーブルのデータをダンプし、そのダンプファイルをloadDump()によって、別のMySQLサーバのインスタンスやスキーマにインポートします。
 

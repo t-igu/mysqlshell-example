@@ -55,11 +55,11 @@ pip install loguru pyyaml
 
 設定についてはそれぞれ下記を参照ください。
 
-[logの設定(Delgan/loguru)](https://github.com/Delgan/loguru)
+[logの設定(Delgan/loguru)](https://github.com/Delgan/loguru){:target="_blank"}
 
-[tableDumpsユーティリティのオプション](https://dev.mysql.com/doc/mysql-shell/8.0/ja/mysql-shell-utilities-dump-instance-schema.html)
+[tableDumpsユーティリティのオプション](https://dev.mysql.com/doc/mysql-shell/8.0/ja/mysql-shell-utilities-dump-instance-schema.html){:target="_blank"}
 
-[loadDumpユーティリティ](https://dev.mysql.com/doc/mysql-shell/8.0/ja/mysql-shell-utilities-load-dump.html)
+[loadDumpユーティリティ](https://dev.mysql.com/doc/mysql-shell/8.0/ja/mysql-shell-utilities-load-dump.html){:target="_blank"}
 
 ## usage (実行)
 
