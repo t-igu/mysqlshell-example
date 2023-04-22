@@ -1,4 +1,4 @@
-# [MySQL Shell ユーティリティ](https://dev.mysql.com/doc/mysql-shell/8.0/ja/mysql-shell-utilities-dump-instance-schema.html){:target="_blank"}
+# [MySQL Shell ユーティリティ](https://dev.mysql.com/doc/mysql-shell/8.0/ja/mysql-shell-utilities-dump-instance-schema.html)
 
 ## 機能概要
 
