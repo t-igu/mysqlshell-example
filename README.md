@@ -61,6 +61,18 @@ pip install loguru pyyaml
 
 [loadDumpユーティリティ](https://dev.mysql.com/doc/mysql-shell/8.0/ja/mysql-shell-utilities-load-dump.html)
 
+### 注意事項
+
+転送元のDB(dumpTables()を実行するDB)に接続するユーザーの権限について、そのバージョンがMySQL8.0以上の場合、mysqlスキーマに対してSELECT権限を付与する必要があるようです。
+
+```Shell Session (console)
+ERROR: Unable to check privileges for user 'username'@'localhost'. User requires SELECT privilege on mysql.* to obtain information about all roles.
+```
+
+```sql
+GRANT SELECT on mysql.* to 'username'@'localhost';
+```
+
 ## usage (実行)
 
 以下のコマンドを実行します。
